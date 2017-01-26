@@ -1,4 +1,5 @@
 #!/bin/bash
-cd ../page && npm run dev &
+trap 'kill $(jobs -p)' EXIT
+cd page && npm run dev &
 sleep 5
-cd .. && ./node_modules/.bin/electron .
+./node_modules/.bin/electron .
